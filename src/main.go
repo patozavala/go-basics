@@ -2,25 +2,40 @@ package main
 
 import "fmt"
 
-func rectangleArea(width float64, length float64) float64 {
-	area := width * length
-	return area
-}
-
-func rectanglePerimeter(width float64, length float64) float64 {
-	perimeter := 2 * (width + length)
-	return perimeter
-}
-
-func rectangleData(width float64, length float64) (float64, float64) {
-	area := rectangleArea(width, length)
-	perimeter := rectanglePerimeter(width, length)
-	return area, perimeter
-
-}
-
 func main() {
-	const width float64 = 5
-	const length float64 = 4
-	fmt.Println(rectangleData(width, length))
+	// for-loop
+	for i := 0; i < 10; i++ {
+		fmt.Println(i)
+	}
+
+	// while-loop
+	var counter int = 0
+	for counter < 10 {
+		fmt.Println(counter)
+		counter++
+	}
+
+	// conditionals
+	const btc = true
+	const money = true
+	const garbage = true
+	const fiat = true
+
+	if btc || money {
+		fmt.Println("BTC is sound money")
+	}
+
+	if garbage && fiat {
+		fmt.Println("FIAT money is garbage")
+	}
+
+	// Switch
+	module := 5 % 2
+	switch module {
+	case 0:
+		fmt.Println("is pair")
+	default:
+		fmt.Println("is odd")
+	}
+
 }
