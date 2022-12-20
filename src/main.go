@@ -6,17 +6,10 @@ import (
 
 func main() {
 
-	var bitcoin tokens.CryptoToken
+	cryptopunk := tokens.Nft{Name: "CryptoPunks"}
+	clt := tokens.Ft{Name: "Cafinca Loyalty Token"}
 
-	bitcoin.Ticker = "BTC"
-	bitcoin.MaxSupply = 21000000
-	tokens.PrintTokenData(bitcoin)
-
-	cardano := tokens.CryptoToken{
-		Ticker:    "ADA",
-		MaxSupply: 45000000000,
-	}
-
-	tokens.PrintTokenData(cardano)
+	tokens.Mint(&cryptopunk)
+	tokens.Mint(&clt)
 
 }

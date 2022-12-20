@@ -1,19 +1,41 @@
 package tokens
 
-import "fmt"
+import (
+	"fmt"
+)
 
-// CryptoCurrency with public access
-type CryptoToken struct {
-	Ticker    string
-	MaxSupply int
+type IToken interface {
+	Mint()
 }
 
-// CryptoCurrency with private access
-type cryptoToken struct {
-	ticker    string
-	maxSupply int
+type Nft struct {
+	Supply int
+	Name   string
 }
 
-func PrintTokenData(token CryptoToken) {
-	fmt.Println(token)
+type Ft struct {
+	Supply int
+	Name   string
+}
+
+func (token *Nft) Mint() {
+	var message string
+	if token.Supply == 0 {
+		token.Supply++
+		message = fmt.Sprintf("%s. Supply : %d", token.Name, token.Supply)
+	} else {
+		message = fmt.Sprintln("NFT already exists")
+	}
+	fmt.Println(message)
+}
+
+func (token *Ft) Mint() {
+	var message string
+	token.Supply++
+	message = fmt.Sprintf("%s. Supply : %d", token.Name, token.Supply)
+	fmt.Println(message)
+}
+
+func Mint(token IToken) {
+	token.Mint()
 }
